@@ -62,4 +62,4 @@ app.listen(port, () => {
 	console.log(`Listening on port ${port}`)
 });
 
-client.login(process.env.);
+client.login(process.env.TOKEN);
