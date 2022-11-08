@@ -1,5 +1,4 @@
 // discord.js
-
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Events, Collection, GatewayIntentBits } = require('discord.js');
@@ -57,7 +56,7 @@ app.post('/contact', (req, res) => {
 	res.json(req.body);
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 80, () => {
 	console.log(`Listening on port ${process.env.PORT}`)
 });
 
