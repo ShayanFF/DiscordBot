@@ -47,6 +47,10 @@ client.on(Events.InteractionCreate, async interaction => {
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    res.send("Backend is functional")
+})
+
 app.post('/contact', (req, res) => {
 	const name = req.body.name;
 	const email = req.body.email;
