@@ -58,7 +58,7 @@ app.post('/contact', (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-	console.log(`Listening on port ${port}`)
+	console.log(`Listening on port ${process.env.PORT}`)
 });
 
 client.login(process.env.TOKEN);
