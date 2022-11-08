@@ -8,7 +8,6 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 // express
 const express = require('express')
 const app = express()
-const port = 3000
 
 client.commands = new Collection();
 
@@ -58,7 +57,7 @@ app.post('/contact', (req, res) => {
 	res.json(req.body);
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
 	console.log(`Listening on port ${port}`)
 });
 
