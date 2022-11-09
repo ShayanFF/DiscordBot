@@ -6,8 +6,8 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 // express
 const express = require('express')
+const cors = require('cors')
 const app = express()
-
 app.use(cors())
 
 client.commands = new Collection();
