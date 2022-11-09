@@ -8,6 +8,8 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const express = require('express')
 const app = express()
 
+app.use(cors())
+
 client.commands = new Collection();
 
 const commandsPath = path.join(__dirname, 'commands');
