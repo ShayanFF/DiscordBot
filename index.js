@@ -10,6 +10,20 @@ const cors = require('cors')
 const app = express()
 app.use(cors())
 
+// rate limiter
+const slowDown = require("express-slow-down");
+
+app.enable("trust proxy");
+
+const speedLimiter = slowDown({
+  windowMs: 15 * 60 * 1000,
+  delayAfter: 5,
+  delayMs: 10000
+});
+
+//  apply to all requests
+app.use(speedLimiter);
+
 client.commands = new Collection();
 
 const commandsPath = path.join(__dirname, 'commands');
@@ -49,6 +63,7 @@ client.on(Events.InteractionCreate, async interaction => {
 
 app.use(express.json());
 
+// verify backend is functional
 app.get("/", (req, res) => {
     res.send("Backend is functional")
 })
@@ -58,7 +73,9 @@ app.post('/contact', (req, res) => {
 	const email = req.body.email;
 	const message = req.body.message;
 
-	client.channels.cache.get('1039058937938444368').send(`New Contact Request\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
+	client.channels.cache.get(process.env.CONTACT_CHANNEL_ID).send(
+		`New Contact Request!\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}\n\n<@${process.env.PERSONAL_ID}>`
+		);
 	res.json(req.body);
 });
 
