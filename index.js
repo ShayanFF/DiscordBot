@@ -71,6 +71,7 @@ app.get("/", (req, res) => {
 app.post('/contact', (req, res) => {
 	const name = req.body.name;
 	const email = req.body.email;
+	const phone = req.body.phone;
 	const message = req.body.message;
 
 	client.channels.cache.get(process.env.CONTACT_CHANNEL_ID).send(
