@@ -2,7 +2,7 @@
 
 ## Description
 
-The Discord Bot for Contact Requests is a personal tool that enables me to view contact requests from my portfolio website on my own Discord server. Built using discord.js and Express, this bot allows visitors to submit contact requests through my website, which includes name, email, phone, and message.
+This Discord bot is a personal tool that sends contact requests from my website directly to my own Discord server. Built using discord.js and Express, this bot allows visitors to submit contact requests through my website, which includes name, email, phone, and message.
 
 ## Try it out!
 
